@@ -35,7 +35,7 @@ public class TaskRepositoryEventHandler {
 		}
 		
 		if (duplicate) {
-			throw new DuplicateTaskException("Já existe uma tarefa com esta descrição");
+			throw new DuplicateTaskException("JÃ¡ existe uma tarefa com esta descriÃ§Ã£o");
 		}
 	}
 

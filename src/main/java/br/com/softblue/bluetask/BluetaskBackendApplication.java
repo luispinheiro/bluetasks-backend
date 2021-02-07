@@ -10,7 +10,6 @@ import org.springframework.data.rest.core.event.ValidatingRepositoryEventListene
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import br.com.softblue.bluetask.domain.task.Task;
 
@@ -26,16 +25,16 @@ public class BluetaskBackendApplication implements RepositoryRestConfigurer{
 
 	@Override
 	public void configureRepositoryRestConfiguration(
-	        RepositoryRestConfiguration config, CorsRegistry corsRegistry) {
-			
-	    config.exposeIdsFor(Task.class);
+		RepositoryRestConfiguration config) {
+				
+		config.exposeIdsFor(Task.class);
 
-	    corsRegistry
-	        .addMapping("/**")
-		    .allowedOrigins("*")
-		    .allowedMethods("GET","POST","PUT","DELETE");
+		config.getCorsRegistry()
+		    .addMapping("/**")
+			.allowedOrigins("*")
+			.allowedMethods("GET","POST","PUT","DELETE");
 
-	    logger.info("Repository CORS setub.. OK");		
+		logger.info("Repository CORS setub.. OK");		
 	}
 	
 	@Bean

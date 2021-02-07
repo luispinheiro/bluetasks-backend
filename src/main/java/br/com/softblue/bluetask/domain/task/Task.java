@@ -33,12 +33,12 @@ public class Task {
 	//@EqualsAndHashCode.Include
 	private Integer id;
 	
-	@NotEmpty(message = "A descriÁ„o da tarefa È obrigatÛria")
-	@Length(min = 3, max = 60, message = "O tamanho da tarefa È inv·lido")
+	@NotEmpty(message = "A descri√ß√£o da tarefa √© obrigat√≥ria")
+	@Length(min = 3, max = 60, message = "O tamanho da tarefa √© inv√°lido")
 	private String description;
 
-	@NotNull(message = "A data da tarefa È obrigatÛria")
-	@FutureOrPresent(message = "A data da tarefa n„o pode estar no passado")
+	@NotNull(message = "A data da tarefa √© obrigat√≥ria")
+	@FutureOrPresent(message = "A data da tarefa n√£o pode estar no passado")
 	private LocalDate whenToDo;
 
 	private Boolean done = false;
