@@ -19,18 +19,21 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.softblue.bluetask.domain.user.AppUser;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @EntityListeners(TaskListener.class)
 @Table(name = "task")
-//@Data
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-//@NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Task {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@EqualsAndHashCode.Include
+	@EqualsAndHashCode.Include
 	private Integer id;
 	
 	@NotEmpty(message = "A descrição da tarefa é obrigatória")
@@ -47,10 +50,6 @@ public class Task {
 	@JoinColumn(name = "app_user_id")
 	@JsonIgnore
 	private AppUser appUser;
-	
-	public Task() {
-		
-	}
 
 	public Task(String description, LocalDate whenToDo, Boolean done) {
 		this.description = description;

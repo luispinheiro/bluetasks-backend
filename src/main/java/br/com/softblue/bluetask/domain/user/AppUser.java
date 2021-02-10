@@ -6,63 +6,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "app_user")
-//@Data
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-//@NoArgsConstructor @AllArgsConstructor
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
 public class AppUser {
 
 	@Id
 	@GeneratedValue
+	@EqualsAndHashCode.Include
 	private Integer id;
 
-	@NotEmpty(message = "O nome de usu·rio È obrigatÛrio")
+	@NotEmpty(message = "O nome de usu√°rio √© obrigat√≥rio")
 	private String username;
 	
-	@NotEmpty(message = "A senha È obrigatÛria")
+	@NotEmpty(message = "A senha √© obrigat√≥ria")
 	private String password;
 
-	@NotEmpty(message = "O nome de exibiÁ„o È obrigatÛrio")
+	@NotEmpty(message = "O nome de exibi√ß√£o √© obrigat√≥rio")
 	private String displayName;
-	
-	
-	public AppUser() {
-		
-	}
 
 	public AppUser(String username, String password, String displayName) {
 		this.username = username;
 		this.password = password;
 		this.displayName = displayName;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getDisplayName() {
-		return displayName;
-	}
-
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 }
