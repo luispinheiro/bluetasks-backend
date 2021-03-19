@@ -22,7 +22,7 @@ public class TaskListener {
 			AppUser appUser = appUserRepository.findByUsername(username);
 			
 			if (appUser == null) {
-				throw new EntityNotFoundException("O usu·rio " + username + " n„o foi encontrado");
+				throw new EntityNotFoundException("O usu√°rio " + username + " n√£o foi encontrado");
 			}
 			
 			task.setAppUser(appUser);
